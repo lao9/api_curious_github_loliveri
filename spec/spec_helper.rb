@@ -106,12 +106,14 @@ def stub_omniauth
       raw_info: {
         user_id: '1234',
         name: "Lauren Oliveri",
-        nickname: "lao9"
+        login: "lolly",
+        email: "lauren@example.com",
+        image_url: "https://avatars1.githubusercontent.com/u/4068853?v=3"
       }
     },
     credentials: {
-      token: "pizza",
-      secret: "secretpizza"
+      token: "kitty",
+      secret: "secretkitty"
     }
   })
 end
