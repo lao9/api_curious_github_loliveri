@@ -97,3 +97,21 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+    provider: 'github',
+    extra: {
+      raw_info: {
+        user_id: '1234',
+        name: "Lauren Oliveri",
+        nickname: "lao9"
+      }
+    },
+    credentials: {
+      token: "pizza",
+      secret: "secretpizza"
+    }
+  })
+end
