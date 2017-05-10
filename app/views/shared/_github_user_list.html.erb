@@ -1,5 +1,5 @@
-<% @github_users.each do |github_user| %>
-  <div class="flex-conatiner well">
+<% @github_users.each_with_index do |github_user, index| %>
+  <div class="flex-conatiner well <%= "user_#{index}" %>">
     <div>
       <h3><%= github_user.username %></h3>
     </div>
