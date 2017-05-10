@@ -1,8 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  context ".starred_repos(filter)" do
-    xit "returns colletion of starred repos" do
+  describe "validations" do
+    context "user is valid with all attributes" do
+      it { should validate_presence_of(:uid) }
+      it { should validate_presence_of(:username) }
+      it { should validate_presence_of(:name) }
+      it { should validate_presence_of(:email) }
+      it { should validate_presence_of(:image_url) }
+    end
+  end
+  context ".starred_repos" do
+    it "returns colletion of starred repos" do
       stub_omniauth
       user = User.last
 
@@ -13,13 +22,5 @@ RSpec.describe User, type: :model do
       expect(starred_repo.full_name).to eq("lao9/black-thursday-project")
     end
   end
-  describe "validations" do
-    context "user is valid with all attributes" do
-      it { should validate_presence_of(:uid) }
-      it { should validate_presence_of(:username) }
-      it { should validate_presence_of(:name) }
-      it { should validate_presence_of(:email) }
-      it { should validate_presence_of(:image_url) }
-    end
-  end
+
 end
