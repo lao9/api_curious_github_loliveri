@@ -18,6 +18,21 @@ def stub_omniauth
   })
 end
 
+def stub_star_repos
+  [
+    stub_repository,
+    stub_repository
+  ]
+end
+
+def stub_github_user_collection
+  [
+    stub_github_user,
+    stub_github_user,
+    stub_github_user
+  ]
+end
+
 def stub_repository
   {
     full_name: "lao9/black-thursday-project",
@@ -29,5 +44,12 @@ def stub_repository
     created_at: "2017-02-21T20:27:50Z",
     updated_at: DateTime.yesterday.strftime("%Y-%m-%dT%H:%M:%S"),
     language: "Ruby"
+  }
+end
+
+def stub_github_user
+  {
+    login: "maxjacobson",
+    avatar_url: "https://avatars2.githubusercontent.com/u/1421211?v=3"
   }
 end

@@ -22,13 +22,13 @@ class User < ApplicationRecord
   end
 
   def followers
-    GithubService.followers(username, {access_token: oauth_token}).map do |raw_user|
+    GithubService.followers(username).map do |raw_user|
       GithubUser.new(raw_user)
     end
   end
 
   def followings
-    GithubService.followings(username, {access_token: oauth_token}).map do |raw_user|
+    GithubService.followings(username).map do |raw_user|
       GithubUser.new(raw_user)
     end
   end
