@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.github.com/users/lao9/following
+    uri: https://api.github.com/users/lao9/following?access_token=<ACCESS_TOKEN>
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Wed, 10 May 2017 20:41:08 GMT
+      - Wed, 10 May 2017 22:42:34 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -29,18 +29,24 @@ http_interactions:
       Status:
       - 200 OK
       X-Ratelimit-Limit:
-      - '60'
+      - '5000'
       X-Ratelimit-Remaining:
-      - '40'
+      - '4996'
       X-Ratelimit-Reset:
-      - '1494452033'
+      - '1494459582'
       Cache-Control:
-      - public, max-age=60, s-maxage=60
+      - private, max-age=60, s-maxage=60
       Vary:
-      - Accept
+      - Accept, Authorization, Cookie, X-GitHub-OTP
       - Accept-Encoding
       Etag:
       - W/"0205cc741bfa2880af69121c7a26f84f"
+      X-Oauth-Scopes:
+      - ''
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Oauth-Client-Id:
+      - "<GITHUB_ID>"
       X-Github-Media-Type:
       - github.v3; format=json
       Access-Control-Expose-Headers:
@@ -59,12 +65,12 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Served-By:
-      - 075bb2f6b7031ca3c0e69edb17939fae
+      - 7efb7ae49588ef0269c6a1c1bd3721d9
       X-Github-Request-Id:
-      - C422:3FEC:2703693:30959E0:59137AE4
+      - C714:3FF6:4C2E8B8:5ECECDE:5913975A
     body:
       encoding: ASCII-8BIT
       string: '[{"login":"nickcherry","id":229477,"avatar_url":"https://avatars3.githubusercontent.com/u/229477?v=3","gravatar_id":"","url":"https://api.github.com/users/nickcherry","html_url":"https://github.com/nickcherry","followers_url":"https://api.github.com/users/nickcherry/followers","following_url":"https://api.github.com/users/nickcherry/following{/other_user}","gists_url":"https://api.github.com/users/nickcherry/gists{/gist_id}","starred_url":"https://api.github.com/users/nickcherry/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/nickcherry/subscriptions","organizations_url":"https://api.github.com/users/nickcherry/orgs","repos_url":"https://api.github.com/users/nickcherry/repos","events_url":"https://api.github.com/users/nickcherry/events{/privacy}","received_events_url":"https://api.github.com/users/nickcherry/received_events","type":"User","site_admin":false},{"login":"maxjacobson","id":1421211,"avatar_url":"https://avatars2.githubusercontent.com/u/1421211?v=3","gravatar_id":"","url":"https://api.github.com/users/maxjacobson","html_url":"https://github.com/maxjacobson","followers_url":"https://api.github.com/users/maxjacobson/followers","following_url":"https://api.github.com/users/maxjacobson/following{/other_user}","gists_url":"https://api.github.com/users/maxjacobson/gists{/gist_id}","starred_url":"https://api.github.com/users/maxjacobson/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/maxjacobson/subscriptions","organizations_url":"https://api.github.com/users/maxjacobson/orgs","repos_url":"https://api.github.com/users/maxjacobson/repos","events_url":"https://api.github.com/users/maxjacobson/events{/privacy}","received_events_url":"https://api.github.com/users/maxjacobson/received_events","type":"User","site_admin":false},{"login":"TheKaterTot","id":1721599,"avatar_url":"https://avatars3.githubusercontent.com/u/1721599?v=3","gravatar_id":"","url":"https://api.github.com/users/TheKaterTot","html_url":"https://github.com/TheKaterTot","followers_url":"https://api.github.com/users/TheKaterTot/followers","following_url":"https://api.github.com/users/TheKaterTot/following{/other_user}","gists_url":"https://api.github.com/users/TheKaterTot/gists{/gist_id}","starred_url":"https://api.github.com/users/TheKaterTot/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TheKaterTot/subscriptions","organizations_url":"https://api.github.com/users/TheKaterTot/orgs","repos_url":"https://api.github.com/users/TheKaterTot/repos","events_url":"https://api.github.com/users/TheKaterTot/events{/privacy}","received_events_url":"https://api.github.com/users/TheKaterTot/received_events","type":"User","site_admin":false},{"login":"OstrichProjects","id":5961416,"avatar_url":"https://avatars2.githubusercontent.com/u/5961416?v=3","gravatar_id":"","url":"https://api.github.com/users/OstrichProjects","html_url":"https://github.com/OstrichProjects","followers_url":"https://api.github.com/users/OstrichProjects/followers","following_url":"https://api.github.com/users/OstrichProjects/following{/other_user}","gists_url":"https://api.github.com/users/OstrichProjects/gists{/gist_id}","starred_url":"https://api.github.com/users/OstrichProjects/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/OstrichProjects/subscriptions","organizations_url":"https://api.github.com/users/OstrichProjects/orgs","repos_url":"https://api.github.com/users/OstrichProjects/repos","events_url":"https://api.github.com/users/OstrichProjects/events{/privacy}","received_events_url":"https://api.github.com/users/OstrichProjects/received_events","type":"User","site_admin":false},{"login":"samlandfried","id":14250133,"avatar_url":"https://avatars2.githubusercontent.com/u/14250133?v=3","gravatar_id":"","url":"https://api.github.com/users/samlandfried","html_url":"https://github.com/samlandfried","followers_url":"https://api.github.com/users/samlandfried/followers","following_url":"https://api.github.com/users/samlandfried/following{/other_user}","gists_url":"https://api.github.com/users/samlandfried/gists{/gist_id}","starred_url":"https://api.github.com/users/samlandfried/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/samlandfried/subscriptions","organizations_url":"https://api.github.com/users/samlandfried/orgs","repos_url":"https://api.github.com/users/samlandfried/repos","events_url":"https://api.github.com/users/samlandfried/events{/privacy}","received_events_url":"https://api.github.com/users/samlandfried/received_events","type":"User","site_admin":false}]'
     http_version: 
-  recorded_at: Wed, 10 May 2017 20:41:08 GMT
+  recorded_at: Wed, 10 May 2017 22:42:34 GMT
 recorded_with: VCR 3.0.3

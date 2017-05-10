@@ -16,19 +16,19 @@ class User < ApplicationRecord
   end
 
   def starred_repos
-    GithubService.starred_repos(username).map do |raw_repo|
+    GithubService.starred_repos(username, {access_token: oauth_token}).map do |raw_repo|
       Repository.new(raw_repo)
     end
   end
 
   def followers
-    GithubService.followers(username).map do |raw_user|
+    GithubService.followers(username, {access_token: oauth_token}).map do |raw_user|
       GithubUser.new(raw_user)
     end
   end
 
   def followings
-    GithubService.followings(username).map do |raw_user|
+    GithubService.followings(username, {access_token: oauth_token}).map do |raw_user|
       GithubUser.new(raw_user)
     end
   end

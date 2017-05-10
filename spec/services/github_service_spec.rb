@@ -4,7 +4,7 @@ describe GithubService do
   context ".starred_repos" do
     it "returns a collection of a user's starred_repos" do
       VCR.use_cassette("starred_repos") do
-        starred_repos = GithubService.starred_repos("lao9")
+        starred_repos = GithubService.starred_repos("lao9", {access_token: ENV['ACCESS_TOKEN']})
         starred_repo = starred_repos.first
 
         expect(starred_repos).to be_an(Array)
@@ -22,7 +22,7 @@ describe GithubService do
   context ".followers" do
     it "returns collection of a user's followers" do
       VCR.use_cassette("followers") do
-        followers = GithubService.followers("lao9")
+        followers = GithubService.followers("lao9", {access_token: ENV['ACCESS_TOKEN']})
         follower = followers.first
 
         expect(followers).to be_an(Array)
@@ -38,7 +38,7 @@ describe GithubService do
   context ".followings" do
     it "returns collection of a user's followings" do
       VCR.use_cassette("followings") do
-        followings = GithubService.followings("lao9")
+        followings = GithubService.followings("lao9", {access_token: ENV['ACCESS_TOKEN']})
         following = followings.first
 
         expect(followings).to be_an(Array)
