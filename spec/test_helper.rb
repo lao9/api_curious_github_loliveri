@@ -53,3 +53,19 @@ def stub_github_user
     avatar_url: "https://avatars2.githubusercontent.com/u/1421211?v=3"
   }
 end
+
+def stub_user_profile
+  stub_omniauth
+
+  allow_any_instance_of(GithubService)
+    .to receive(:starred_repos)
+    .and_return(stub_star_repos)
+
+  allow_any_instance_of(GithubService)
+    .to receive(:followers)
+    .and_return(stub_github_user_collection)
+
+  allow_any_instance_of(GithubService)
+    .to receive(:followings)
+    .and_return(stub_github_user_collection)
+end
