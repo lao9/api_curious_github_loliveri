@@ -102,13 +102,13 @@ def stub_omniauth
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
     provider: 'github',
+    uid: '1234',
     extra: {
       raw_info: {
-        user_id: '1234',
         name: "Lauren Oliveri",
         login: "lolly",
         email: "lauren@example.com",
-        image_url: "https://avatars1.githubusercontent.com/u/4068853?v=3"
+        avatar_url: "https://avatars1.githubusercontent.com/u/4068853?v=3"
       }
     },
     credentials: {

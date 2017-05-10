@@ -1,3 +1,5 @@
+require_relative '../services/github_service'
+
 class User < ApplicationRecord
   validates :uid, :username, :name, :email, :image_url, presence: true
 
@@ -10,6 +12,24 @@ class User < ApplicationRecord
       new_user.image_url          = auth_info.extra.raw_info.avatar_url
       new_user.oauth_token        = auth_info.credentials.token
       new_user.oauth_token_secret = auth_info.credentials.secret
+    end
+  end
+
+  def starred_repos
+    GithubService.starred_repos(username, {access_token: oauth_token}).map do |raw_repo|
+      Repository.new(raw_repo)
+    end
+  end
+
+  def followers
+    GithubService.followers(username, {access_token: oauth_token}).map do |raw_user|
+      GithubUser.new(raw_user)
+    end
+  end
+
+  def followings
+    GithubService.followings(username, {access_token: oauth_token}).map do |raw_user|
+      GithubUser.new(raw_user)
     end
   end
 
