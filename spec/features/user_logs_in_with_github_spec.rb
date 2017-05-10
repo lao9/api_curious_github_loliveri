@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "user logs in with github" do
-  xit "allows user to login." do
+  it "allows user to login." do
     stub_omniauth
 
     visit root_path
