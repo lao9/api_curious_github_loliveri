@@ -1,1 +1,22 @@
 <h1>Hello, <%= current_user.name %>!</h1>
+
+<div class="flex-container">
+  <div class="avatar">
+    <img src="<%= current_user.image_url %>" alt="<%= current_user.name %>" height='200px'>
+  </div>
+  <div class="account_info well">
+    <h3>Account Info:</h3>
+    <ul style="list-style-type:none">
+      <li>username: <%=current_user.username%></li>
+      <li>email: <%=current_user.email%></li>
+    </ul>
+  </div>
+  <div class="addl_info well">
+    <h3>Account Stats:</h3>
+    <ul style="list-style-type:none">
+      <li><%=link_to "Starred Repos: #{current_user.starred_repos.count}", starred_repos_path %></li>
+      <li><%=link_to "Followers: #{current_user.followers.count}", followers_path %></li>
+      <li><%=link_to "Following: #{current_user.followings.count}", followings_path %></li>
+    </ul>
+  </div>
+</div>

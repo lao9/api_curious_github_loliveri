@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/user', to: 'users#show', as: 'user'
+  resources :starred_repos, only: [:index]
+  resources :followers, only: [:index]
+  resources :followings, only: [:index]
 end

@@ -1,0 +1,8 @@
+<h1>Starred Repositories</h1>
+
+<% @repos.each do |repo| %>
+  <div class="well">
+    <h3><%=repo.full_name%></h3>
+    <p><%=repo.language%> - Updated <%= repo.format_date %> ago</p>
+  </div>
+<% end %>
