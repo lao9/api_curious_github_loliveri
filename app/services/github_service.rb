@@ -4,34 +4,34 @@ class GithubService
     @conn = Faraday.new('https://api.github.com')
   end
 
-  def starred_repos(username, filter)
-    response = @conn.get("/users/#{username}/starred", filter)
-    JSON.parse(response.body, symbolize_name: true)
+  def starred_repos(username)
+    response = @conn.get("/users/#{username}/starred")
+    JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.starred_repos(username, filter = {})
+  def self.starred_repos(username)
     service = GithubService.new
-    service.starred_repos(username, filter)
+    service.starred_repos(username)
   end
 
-  def followers(username, filter)
-    response = @conn.get("/users/#{username}/followers", filter)
-    JSON.parse(response.body, symbolize_name: true)
+  def followers(username)
+    response = @conn.get("/users/#{username}/followers")
+    JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.followers(username, filter = {})
+  def self.followers(username)
     service = GithubService.new
-    service.followers(username, filter)
+    service.followers(username)
   end
 
-  def followings(username, filter)
-    response = @conn.get("/users/#{username}/following", filter)
-    JSON.parse(response.body, symbolize_name: true)
+  def followings(username)
+    response = @conn.get("/users/#{username}/following")
+    JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.followings(username, filter = {})
+  def self.followings(username)
     service = GithubService.new
-    service.followings(username, filter)
+    service.followings(username)
   end
 
 end

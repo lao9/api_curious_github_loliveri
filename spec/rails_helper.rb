@@ -7,8 +7,6 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'database_cleaner'
 require 'capybara/rails'
-require 'webmock/rspec'
-require 'vcr'
 
 DatabaseCleaner.strategy = :truncation
 
@@ -29,8 +27,12 @@ RSpec.configure do |c|
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/cassettes"
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
+  config.filter_sensitive_data('<GITHUB_ID>'){ENV['GITHUB_ID']}
+  config.filter_sensitive_data('<GITHUB_SECRET>'){ENV['GITHUB_SECRET']}
+  config.filter_sensitive_data('<ACCESS_TOKEN>'){ENV['ACCESS_TOKEN']}
+  config.allow_http_connections_when_no_cassette = true
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!

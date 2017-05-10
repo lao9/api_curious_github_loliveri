@@ -9,7 +9,8 @@ feature "user basic profile" do
 
     @user = User.last
   end
-  xit "returns account info like username and email" do
+  it "returns account info like username and email" do
+    
     within(".account_info") do
       within("h3") do
         expect(page).to have_content("Account Info:")
