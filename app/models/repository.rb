@@ -3,9 +3,9 @@ class Repository
   attr_reader :full_name, :language
 
   def initialize(attrs = {})
-    @full_name = attrs["full_name"]
-    @language = attrs["language"]
-    @updated_at = attrs["updated_at"]
+    @full_name = attrs[:full_name]
+    @language = attrs[:language]
+    @updated_at = attrs[:updated_at]
   end
 
   def format_date

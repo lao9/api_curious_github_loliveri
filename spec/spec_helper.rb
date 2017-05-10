@@ -97,32 +97,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
-def stub_omniauth
-  OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-    provider: 'github',
-    uid: '1234',
-    extra: {
-      raw_info: {
-        name: "Lauren Oliveri",
-        login: "lolly",
-        email: "lauren@example.com",
-        avatar_url: "https://avatars1.githubusercontent.com/u/4068853?v=3"
-      }
-    },
-    credentials: {
-      token: "kitty",
-      secret: "secretkitty"
-    }
-  })
-end
-
-# def stub_starred
-#   OmniAuth.config.test_mode = true
-#   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-#     full_name: 'lao9/black-thursday-project',
-#     language: 'Ruby',
-#     updated_at: "2017-05-09T21:42:45Z"
-#   })
-# end
