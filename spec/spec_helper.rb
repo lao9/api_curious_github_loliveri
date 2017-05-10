@@ -117,3 +117,12 @@ def stub_omniauth
     }
   })
 end
+
+# def stub_starred
+#   OmniAuth.config.test_mode = true
+#   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+#     full_name: 'lao9/black-thursday-project',
+#     language: 'Ruby',
+#     updated_at: "2017-05-09T21:42:45Z"
+#   })
+# end

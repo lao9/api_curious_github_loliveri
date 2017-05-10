@@ -7,6 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'database_cleaner'
 require 'capybara/rails'
+require 'webmock/rspec'
+require 'vcr'
 
 DatabaseCleaner.strategy = :truncation
 
@@ -24,6 +26,11 @@ RSpec.configure do |c|
   c.after(:each) do
     DatabaseCleaner.clean
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/cassettes"
+  config.hook_into :webmock
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!

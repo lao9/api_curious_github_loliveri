@@ -9,7 +9,7 @@ feature "user basic profile" do
 
     @user = User.last
   end
-  it "returns account info like username and email" do
+  xit "returns account info like username and email" do
     within(".account_info") do
       within("h3") do
         expect(page).to have_content("Account Info:")
@@ -18,12 +18,12 @@ feature "user basic profile" do
       expect(page).to have_content("email: #{@user.email}")
     end
   end
-  it "returns profile image" do
+  xit "returns profile image" do
     within(".avatar") do
       expect(page).to have_css("img[src*='#{@user.image_url}']")
     end
   end
-  it "returns number of starred repos, followers, following" do
+  xit "returns number of starred repos, followers, following" do
     within(".addl_info") do
       within("h3") do
         expect(page).to have_content("Account Stats:")
