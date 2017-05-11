@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
     end
   end
   context ".starred_repos" do
-    it "returns colletion of starred repos" do
+    it "returns collection of starred repos" do
       allow_any_instance_of(GithubService)
         .to receive(:starred_repos)
         .and_return(stub_star_repos)
@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     end
   end
   context ".followers" do
-    it "returns colletion of followers" do
+    it "returns collection of followers" do
       allow_any_instance_of(GithubService)
         .to receive(:followers)
         .and_return(stub_github_user_collection)
@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
     end
   end
   context ".followings" do
-    it "returns colletion of followings" do
+    it "returns collection of followings" do
       allow_any_instance_of(GithubService)
         .to receive(:followings)
         .and_return(stub_github_user_collection)
@@ -47,6 +47,36 @@ RSpec.describe User, type: :model do
 
       expect(followings.count).to eq(3)
       expect(following.username).to eq("maxjacobson")
+    end
+  end
+  context ".repos" do
+    it "returns collection of user's repositories" do
+      allow_any_instance_of(GithubService)
+        .to receive(:repos)
+        .and_return(stub_repo_list)
+      user = User.from_omniauth(stub_omniauth)
+      repos = user.repos
+      repo = repos.last
+
+      expect(repos.count).to eq(11)
+      expect(repo.full_name).to eq("lao9/portfolios")
+      expect(repo.language).to eq("HTML")
+      expect(repo.description).to eq("Turing School promotion portfolios")
+    end
+  end
+  context ".orgs" do
+    it "returns collection of user's organizations" do
+      allow_any_instance_of(GithubService)
+        .to receive(:orgs)
+        .and_return(stub_organizations)
+      
+      user = User.from_omniauth(stub_omniauth)
+      orgs = user.orgs
+      org = orgs.last
+
+      expect(orgs.count).to eq(1)
+      expect(org.title).to eq("Duke-Medical-Instrumentation")
+      expect(org.image_url).to eq("https://avatars2.githubusercontent.com/u/5090472?v=3")
     end
   end
 end

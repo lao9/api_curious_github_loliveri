@@ -1,0 +1,7 @@
+<% @repos.each_with_index do |repo, index| %>
+  <div class="well <%= "repo_#{index}" %>">
+    <h3><%=repo.full_name%></h3>
+    <%= render partial: 'shared/description', locals: {:description => repo.description} unless repo.description.nil? %>
+    <p><%= render partial: 'shared/language', locals: {:language => repo.language} unless repo.language.nil?%>Updated <%= repo.format_date %> ago</p>
+  </div>
+<% end %>

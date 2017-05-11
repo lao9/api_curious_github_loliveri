@@ -1,11 +1,12 @@
 class Repository
   include ActionView::Helpers::DateHelper
-  attr_reader :full_name, :language
+  attr_reader :full_name, :language, :description
 
   def initialize(attrs = {})
     @full_name = attrs[:full_name]
     @language = attrs[:language]
     @updated_at = attrs[:updated_at]
+    @description = attrs[:description]
   end
 
   def format_date
