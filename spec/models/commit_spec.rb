@@ -10,6 +10,7 @@ describe Commit, type: :model do
     expect(@commit).to respond_to(:author_username)
     expect(@commit).to respond_to(:message)
     expect(@commit).to respond_to(:repo)
+    expect(@commit).to respond_to(:created_at)
     expect(@commit).to respond_to(:format_date)
   end
   it "returns commit author name" do

@@ -89,4 +89,38 @@ describe GithubService do
       end
     end
   end
+  context ".commits" do
+    it "returns collection of a user's recent commits" do
+      VCR.use_cassette("commits") do
+        commits = GithubService.commits("lao9", {access_token: ENV['ACCESS_TOKEN']})
+        commit = commits.first
+
+        expect(commits).to be_an(Array)
+        expect(commit).to be_a(Commit)
+        expect(commit).to respond_to(:author_username)
+        expect(commit).to respond_to(:author_name)
+        expect(commit).to respond_to(:message)
+        expect(commit).to respond_to(:repo)
+        expect(commit).to respond_to(:created_at)
+        expect(commit).to respond_to(:format_date)
+      end
+    end
+  end
+  context ".following_commits" do
+    it "returns collection of a user's following's recent commits" do
+      VCR.use_cassette("following_commits") do
+        commits = GithubService.following_commits("lao9", {access_token: ENV['ACCESS_TOKEN']})
+        commit = commits.first
+
+        expect(commits).to be_an(Array)
+        expect(commit).to be_a(Commit)
+        expect(commit).to respond_to(:author_username)
+        expect(commit).to respond_to(:author_name)
+        expect(commit).to respond_to(:message)
+        expect(commit).to respond_to(:repo)
+        expect(commit).to respond_to(:created_at)
+        expect(commit).to respond_to(:format_date)
+      end
+    end
+  end
 end
