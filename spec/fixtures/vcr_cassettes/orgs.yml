@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/lao9/orgs?access_token=<ACCESS_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 11 May 2017 01:16:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4987'
+      X-Ratelimit-Reset:
+      - '1494467885'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"2dda5d43b832b924b2b7de50a76fb253"
+      X-Oauth-Scopes:
+      - ''
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Oauth-Client-Id:
+      - "<GITHUB_ID>"
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - 62cdcc2d03a2f173f1c58590d1a90077
+      X-Github-Request-Id:
+      - C9ED:3FEC:27FD863:31CB962:5913BB7E
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"login":"Duke-Medical-Instrumentation","id":5090472,"url":"https://api.github.com/orgs/Duke-Medical-Instrumentation","repos_url":"https://api.github.com/orgs/Duke-Medical-Instrumentation/repos","events_url":"https://api.github.com/orgs/Duke-Medical-Instrumentation/events","hooks_url":"https://api.github.com/orgs/Duke-Medical-Instrumentation/hooks","issues_url":"https://api.github.com/orgs/Duke-Medical-Instrumentation/issues","members_url":"https://api.github.com/orgs/Duke-Medical-Instrumentation/members{/member}","public_members_url":"https://api.github.com/orgs/Duke-Medical-Instrumentation/public_members{/member}","avatar_url":"https://avatars2.githubusercontent.com/u/5090472?v=3","description":null}]'
+    http_version: 
+  recorded_at: Thu, 11 May 2017 01:16:46 GMT
+recorded_with: VCR 3.0.3

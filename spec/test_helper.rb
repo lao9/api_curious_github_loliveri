@@ -73,6 +73,21 @@ def stub_user_profile
   allow_any_instance_of(GithubService)
     .to receive(:repos)
     .and_return(stub_repo_list)
+
+  allow_any_instance_of(GithubService)
+    .to receive(:orgs)
+    .and_return(stub_organizations)
+end
+
+def stub_organizations
+  [
+    {
+      login: "Duke-Medical-Instrumentation",
+      id: 5090472,
+      avatar_url: "https://avatars2.githubusercontent.com/u/5090472?v=3",
+      description: nil
+    }
+  ]
 end
 
 def stub_repo_list

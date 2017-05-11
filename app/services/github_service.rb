@@ -44,4 +44,14 @@ class GithubService
     service.repos(username, filters)
   end
 
+  def orgs(username, filters)
+    response = @conn.get("/users/#{username}/orgs", filters)
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.orgs(username, filters = {})
+    service = GithubService.new
+    service.orgs(username, filters)
+  end
+
 end

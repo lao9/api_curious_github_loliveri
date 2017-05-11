@@ -64,4 +64,19 @@ RSpec.describe User, type: :model do
       expect(repo.description).to eq("Turing School promotion portfolios")
     end
   end
+  context ".orgs" do
+    it "returns collection of user's organizations" do
+      allow_any_instance_of(GithubService)
+        .to receive(:orgs)
+        .and_return(stub_organizations)
+      
+      user = User.from_omniauth(stub_omniauth)
+      orgs = user.orgs
+      org = orgs.last
+
+      expect(orgs.count).to eq(1)
+      expect(org.title).to eq("Duke-Medical-Instrumentation")
+      expect(org.image_url).to eq("https://avatars2.githubusercontent.com/u/5090472?v=3")
+    end
+  end
 end

@@ -39,4 +39,10 @@ class User < ApplicationRecord
     end
   end
 
+  def orgs
+    GithubService.orgs(username, {access_token: oauth_token}).map do |raw_org|
+      Organization.new(raw_org)
+    end
+  end
+
 end

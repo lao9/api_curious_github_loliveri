@@ -20,4 +20,13 @@
       <li><%=link_to "Repos: #{current_user.repos.count}", repos_path %></li>
     </ul>
   </div>
+  <div class="orgs well">
+    <h3>Organizations:</h3>
+    <% current_user.orgs.each_with_index do |org, index| %>
+      <div class="<%="org_#{index}"%>">
+        <p><%= org.title %></p>
+        <img src="<%= org.image_url %>" alt="<%= org.title %>" height="30px">
+      </div>
+    <% end %>
+  </div>
 </div>

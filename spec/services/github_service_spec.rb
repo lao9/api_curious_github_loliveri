@@ -73,4 +73,20 @@ describe GithubService do
       end
     end
   end
+  context ".orgs" do
+    it "returns collection of a user's organizations" do
+      VCR.use_cassette("orgs") do
+        orgs = GithubService.orgs("lao9", {access_token: ENV['ACCESS_TOKEN']})
+        org = orgs.first
+
+        expect(orgs).to be_an(Array)
+        expect(orgs.count).to eq(1)
+        expect(org).to be_a(Hash)
+        expect(org).to have_key(:login)
+        expect(org).to have_key(:avatar_url)
+        expect(org[:login]).to be_a(String)
+        expect(org[:avatar_url]).to be_a(String)
+      end
+    end
+  end
 end
