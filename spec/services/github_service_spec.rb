@@ -12,9 +12,11 @@ describe GithubService do
         expect(starred_repo).to be_a(Hash)
         expect(starred_repo).to have_key(:full_name)
         expect(starred_repo).to have_key(:language)
+        expect(starred_repo).to have_key(:description)
         expect(starred_repo).to have_key(:updated_at)
         expect(starred_repo[:full_name]).to be_a(String)
-        expect(starred_repo[:language]).to be_a(String)
+        expect(starred_repo[:language]).to be_a(String) | be_nil
+        expect(starred_repo[:description]).to be_a(String) | be_nil
         expect(starred_repo[:updated_at]).to be_a(String)
       end
     end
@@ -48,6 +50,26 @@ describe GithubService do
         expect(following).to have_key(:avatar_url)
         expect(following[:login]).to be_a(String)
         expect(following[:avatar_url]).to be_a(String)
+      end
+    end
+  end
+  context ".repos" do
+    it "returns collection of a user's repos" do
+      VCR.use_cassette("repos") do
+        repos = GithubService.repos("lao9", {access_token: ENV['ACCESS_TOKEN']})
+        repo = repos.first
+
+        expect(repos).to be_an(Array)
+        expect(repos.count).to eq(30)
+        expect(repo).to be_a(Hash)
+        expect(repo).to have_key(:full_name)
+        expect(repo).to have_key(:language)
+        expect(repo).to have_key(:description)
+        expect(repo).to have_key(:updated_at)
+        expect(repo[:full_name]).to be_a(String)
+        expect(repo[:language]).to be_a(String) | be_nil
+        expect(repo[:description]).to be_a(String) | be_nil
+        expect(repo[:updated_at]).to be_a(String)
       end
     end
   end

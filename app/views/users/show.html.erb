@@ -17,6 +17,7 @@
       <li><%=link_to "Starred Repos: #{current_user.starred_repos.count}", starred_repos_path %></li>
       <li><%=link_to "Followers: #{current_user.followers.count}", followers_path %></li>
       <li><%=link_to "Following: #{current_user.followings.count}", followings_path %></li>
+      <li><%=link_to "Repos: #{current_user.repos.count}", repos_path %></li>
     </ul>
   </div>
 </div>

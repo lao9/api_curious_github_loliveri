@@ -33,4 +33,10 @@ class User < ApplicationRecord
     end
   end
 
+  def repos
+    GithubService.repos(username, {access_token: oauth_token}).map do |raw_repo|
+      Repository.new(raw_repo)
+    end
+  end
+
 end

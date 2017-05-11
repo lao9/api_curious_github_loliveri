@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/user', to: 'users#show', as: 'user'
   resources :starred_repos, only: [:index]
+  resources :repos, only: [:index]
   resources :followers, only: [:index]
   resources :followings, only: [:index]
 end

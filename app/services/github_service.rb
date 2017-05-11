@@ -34,4 +34,14 @@ class GithubService
     service.followings(username, filters)
   end
 
+  def repos(username, filters)
+    response = @conn.get("/users/#{username}/repos", filters)
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.repos(username, filters = {})
+    service = GithubService.new
+    service.repos(username, filters)
+  end
+
 end
