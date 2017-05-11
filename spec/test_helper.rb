@@ -78,6 +78,14 @@ def stub_user_profile
   allow_any_instance_of(GithubService)
     .to receive(:orgs)
     .and_return(stub_organizations)
+
+  allow_any_instance_of(User)
+    .to receive(:commits)
+    .and_return(stub_user_commits)
+
+  # allow_any_instance_of(GithubService)
+  #   .to receive(:following_commits)
+  #   .and_return(stub_following_commits)
 end
 
 def stub_organizations
@@ -93,51 +101,51 @@ end
 
 def stub_user_commits
   [
-    {
-    "commit": {
-      "author": {
-        "name": "Lauren Oliveri",
-        "email": "lauren.oliveri.9@gmail.com",
-        "date": "2017-04-20T04:28:34Z"
-      },
-      "message": "Hey there! I'm also commit message.",
-      }
-    },
-    {
-    "commit": {
-      "author": {
-        "name": "Lauren Oliveri",
-        "email": "lauren.oliveri.9@gmail.com",
-        "date": "2017-04-19T04:28:34Z"
-      },
-      "message": "Hey there! I'm a commit message.",
-      }
-    }
+    Commit.new("lao9", "api_curious", attrs = {
+      "commit": {
+        "author": {
+          "name": "Lauren Oliveri",
+          "email": "lauren.oliveri.9@gmail.com",
+          "date": "2017-04-20T04:28:34Z"
+        },
+        "message": "Hey there! I'm also commit message.",
+        }
+      }),
+    Commit.new("lao9", "black_thursday", attrs = {
+      "commit": {
+        "author": {
+          "name": "Lauren Oliveri",
+          "email": "lauren.oliveri.9@gmail.com",
+          "date": "2017-04-19T04:28:34Z"
+        },
+        "message": "Hey there! I'm a commit message.",
+        }
+    })
   ]
 end
 
-def stub_follower_commits
+def stub_following_commits
   [
-    {
-    "commit": {
-      "author": {
-        "name": "Max Jacobson",
-        "email": "mj@mj.com",
-        "date": "2017-04-20T04:28:34Z"
-      },
-      "message": "Hey there! I'm also a commit message.",
-      }
-    },
-    {
-    "commit": {
-      "author": {
-        "name": "Beth Knight",
-        "email": "beth@beth.com",
-        "date": "2017-04-19T04:28:34Z"
-      },
-      "message": "Hey there! I'm a commit message.",
-      }
-    }
+    Commit.new("lao9", "api_curious", attrs = {
+      "commit": {
+        "author": {
+          "name": "Max Jacobson",
+          "email": "mj@mj.com",
+          "date": "2017-04-20T04:28:34Z"
+        },
+        "message": "Hey there! I'm also commit message.",
+        }
+      }),
+    Commit.new("lao9", "black_thursday", attrs = {
+      "commit": {
+        "author": {
+          "name": "Beth Knight",
+          "email": "beth@beth.com",
+          "date": "2017-04-19T04:28:34Z"
+        },
+        "message": "Hey there! I'm a commit message.",
+        }
+    })
   ]
 end
 
