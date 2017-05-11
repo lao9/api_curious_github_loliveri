@@ -83,9 +83,9 @@ def stub_user_profile
     .to receive(:commits)
     .and_return(stub_user_commits)
 
-  # allow_any_instance_of(GithubService)
-  #   .to receive(:following_commits)
-  #   .and_return(stub_following_commits)
+  allow_any_instance_of(User)
+    .to receive(:following_commits)
+    .and_return(stub_following_commits)
 end
 
 def stub_organizations
@@ -126,7 +126,7 @@ end
 
 def stub_following_commits
   [
-    Commit.new("lao9", "api_curious", attrs = {
+    Commit.new("maxjacobson", "hard_scrabble", attrs = {
       "commit": {
         "author": {
           "name": "Max Jacobson",
@@ -136,7 +136,7 @@ def stub_following_commits
         "message": "Hey there! I'm also commit message.",
         }
       }),
-    Commit.new("lao9", "black_thursday", attrs = {
+    Commit.new("bethknight", "bethhub", attrs = {
       "commit": {
         "author": {
           "name": "Beth Knight",

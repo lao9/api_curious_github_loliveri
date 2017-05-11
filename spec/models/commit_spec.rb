@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Commit, type: :model do
   before :each do
-    @commit = Commit.new("lao9", "api_curious", stub_user_commits.first)
+    @commit = stub_user_commits.first
   end
   it "exists" do
     expect(@commit).to be_a(Commit)
