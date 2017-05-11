@@ -1,0 +1,16 @@
+<h1>Your Recent Commits</h1>
+
+<table class="table">
+  <tr>
+    <th>Repository</th>
+    <th>Commit Date</th>
+    <th>Message</th>
+  </tr>
+  <% @commits.each do |commit| %>
+    <tr>
+      <td><%= commit.repo %></td>
+      <td><%= commit.format_date %></td>
+      <td><%= commit.message %></td>
+    </tr>
+  <% end %>
+</table>

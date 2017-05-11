@@ -6,14 +6,22 @@ describe Repository, type: :model do
   end
   it "exists" do
     expect(@repository).to be_a(Repository)
+    expect(@repository).to respond_to(:name)
     expect(@repository).to respond_to(:full_name)
+    expect(@repository).to respond_to(:owner)
     expect(@repository).to respond_to(:language)
     expect(@repository).to respond_to(:description)
     expect(@repository).to respond_to(:format_date)
     expect(@repository).to_not respond_to(:updated_at)
   end
+  it "returns repository name" do
+    expect(@repository.name).to eq("black-thursday-project")
+  end
   it "returns repository full name" do
     expect(@repository.full_name).to eq("lao9/black-thursday-project")
+  end
+  it "returns repository owner" do
+    expect(@repository.owner).to eq("lao9")
   end
   it "returns repository language" do
     expect(@repository.language).to eq("Ruby")

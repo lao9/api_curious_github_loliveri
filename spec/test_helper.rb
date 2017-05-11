@@ -35,6 +35,7 @@ end
 
 def stub_repository
   {
+    name: "black-thursday-project",
     full_name: "lao9/black-thursday-project",
     owner: {
       login: "lao9",
@@ -90,10 +91,61 @@ def stub_organizations
   ]
 end
 
+def stub_user_commits
+  [
+    {
+    "commit": {
+      "author": {
+        "name": "Lauren Oliveri",
+        "email": "lauren.oliveri.9@gmail.com",
+        "date": "2017-04-20T04:28:34Z"
+      },
+      "message": "Hey there! I'm also commit message.",
+      }
+    },
+    {
+    "commit": {
+      "author": {
+        "name": "Lauren Oliveri",
+        "email": "lauren.oliveri.9@gmail.com",
+        "date": "2017-04-19T04:28:34Z"
+      },
+      "message": "Hey there! I'm a commit message.",
+      }
+    }
+  ]
+end
+
+def stub_follower_commits
+  [
+    {
+    "commit": {
+      "author": {
+        "name": "Max Jacobson",
+        "email": "mj@mj.com",
+        "date": "2017-04-20T04:28:34Z"
+      },
+      "message": "Hey there! I'm also a commit message.",
+      }
+    },
+    {
+    "commit": {
+      "author": {
+        "name": "Beth Knight",
+        "email": "beth@beth.com",
+        "date": "2017-04-19T04:28:34Z"
+      },
+      "message": "Hey there! I'm a commit message.",
+      }
+    }
+  ]
+end
+
 def stub_repo_list
   [
   {
     id: 1,
+    name: "homework",
     full_name: "lao9/homework",
     owner: {
       login: "lao9",
@@ -105,6 +157,7 @@ def stub_repo_list
   },
   {
     id: 2,
+    name: "http_yeah_you_know_me",
     full_name: "lao9/http_yeah_you_know_me",
     owner: {
       login: "lao9",
@@ -116,6 +169,7 @@ def stub_repo_list
   },
   {
     id: 3,
+    name: "intro-to-ar",
     full_name: "lao9/intro-to-ar",
     owner: {
       login: "lao9",
@@ -127,6 +181,7 @@ def stub_repo_list
   },
   {
     id: 4,
+    name: "job-tracker",
     full_name: "lao9/job-tracker",
     owner: {
       login: "lao9",
@@ -138,6 +193,7 @@ def stub_repo_list
   },
   {
     id: 5,
+    name: "knight_rider",
     full_name: "lao9/knight_rider",
     owner: {
       login: "lao9",
@@ -149,6 +205,7 @@ def stub_repo_list
   },
   {
     id: 6,
+    name: "lao9.github.io",
     full_name: "lao9/lao9.github.io",
     owner: {
       login: "lao9",
@@ -160,6 +217,7 @@ def stub_repo_list
   },
   {
     id: 7,
+    name: "league-manager",
     full_name: "lao9/league-manager",
     owner: {
       login: "lao9",
@@ -171,6 +229,7 @@ def stub_repo_list
   },
   {
     id: 8,
+    name: "mix_master",
     full_name: "lao9/mix_master",
     owner: {
       login: "lao9",
@@ -182,6 +241,7 @@ def stub_repo_list
   },
   {
     id: 9,
+    name: "night_writer",
     full_name: "lao9/night_writer",
     owner: {
       login: "lao9",
@@ -193,6 +253,7 @@ def stub_repo_list
   },
   {
     id: 10,
+    name: "pizza-customer",
     full_name: "lao9/pizza-customer",
     owner: {
       login: "lao9",
@@ -204,6 +265,7 @@ def stub_repo_list
   },
   {
     id: 11,
+    name: "portfolios",
     full_name: "lao9/portfolios",
     owner: {
       login: "lao9",

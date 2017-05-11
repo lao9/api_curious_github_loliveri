@@ -45,4 +45,12 @@ class User < ApplicationRecord
     end
   end
 
+  def commits
+    GithubService.commits(username, {type: 'all', access_token: oauth_token})
+  end
+
+  def following_commits
+    GithubService.following_commits(username, {access_token: oauth_token})
+  end
+
 end

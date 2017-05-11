@@ -54,4 +54,38 @@ class GithubService
     service.orgs(username, filters)
   end
 
+  def commits(username, repo, filters)
+    response = @conn.get("/repos/#{username}/#{repo}/commits", filters)
+    raw_commits = JSON.parse(response.body, symbolize_names: true)
+    raw_commits.map do |raw_commit|
+      Commit.new(filters[:author], repo, raw_commit) if raw_commit.is_a?(Hash)
+    end
+  end
+
+  def self.commits(username, filters = {})
+    # all recent commits by a specific user
+    service = GithubService.new
+    # all repos that a user is a part of
+    all_repos = service.repos(username, filters)
+    # all commits for that user
+    filters.merge!({author: username})
+    filters.delete(:type)
+    all_commits = all_repos.map do |repo|
+      service.commits(repo[:owner][:login], repo[:name], filters)
+    end
+    all_commits.flatten.compact.sort_by {|commit| commit.created_at}.reverse
+  end
+
+  def self.following_commits(username, filters = {})
+    service = GithubService.new
+    # gather all a user's followers
+    all_followings = service.followings(username, filters)
+    # gather all commits by each follower
+    filters.merge!({type: 'all'})
+    all_commits = all_followings.map do |following|
+      GithubService.commits(following[:login], filters)
+    end
+    all_commits.flatten.compact.sort_by {|commit| commit.created_at}.reverse
+  end
+
 end

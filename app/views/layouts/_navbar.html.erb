@@ -11,7 +11,14 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li><%=link_to "#{current_user.name}", user_path if current_user%></li>
-    </ul>
+    <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recent Activity <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Your Recent Commits", user_commits_path %></li>
+            <li><%= link_to "Your Following's Commits", following_commits_path %></li>
+          </ul>
+        </li>
+      </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
         <li><%= link_to "Logout", logout_path, method: :delete %></li>
